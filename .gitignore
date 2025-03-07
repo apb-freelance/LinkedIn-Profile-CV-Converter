@@ -1,0 +1,13 @@
+*.pdf
+*.html
+*.csv
+*.txt
+*.docx
+*.doc
+*.tar
+*.zip
+*.gz
+*.tgz
+profile
+extracted
+
