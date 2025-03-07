@@ -8,6 +8,7 @@
 *.zip
 *.gz
 *.tgz
+venv
 profile
 extracted
 
