@@ -1,0 +1,4 @@
+pandas
+FPDF
+python-docx
+lxml
