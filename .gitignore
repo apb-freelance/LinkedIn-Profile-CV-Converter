@@ -8,7 +8,8 @@
 *.zip
 *.gz
 *.tgz
+*.pkl
 venv
 profile
 extracted
-
+html_data
