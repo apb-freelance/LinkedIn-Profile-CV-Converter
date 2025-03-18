@@ -4,6 +4,33 @@ from selenium.webdriver.common.keys import Keys
 import time
 import pickle
 import os
+import argparse
+
+# Definiendo variables globales
+NAME = ""
+USERNAME = ""
+PASSWORD = ""
+
+# Ingresar credenciales
+# Crear el parser de argumentos
+parser = argparse.ArgumentParser(description="Script para obtener nombre, usuario y contraseña.")
+
+# Definir los argumentos que se van a pasar
+parser.add_argument('--name', type=str, required=True, help="Tu nombre")
+parser.add_argument('--username', type=str, required=True, help="Tu nombre de usuario")
+parser.add_argument('--password', type=str, required=True, help="Tu contraseña")
+
+# Parsear los argumentos
+args = parser.parse_args()
+
+# Asignar los valores de los argumentos a las variables
+NAME = args.name
+USERNAME = args.username
+PASSWORD = args.password
+
+print(f"NAME={NAME}")
+print(f"USERNAME={USERNAME}")
+print(f"PASSWORD={PASSWORD}")
 
 # Configuración del driver
 chrome_options = webdriver.ChromeOptions()
@@ -39,11 +66,6 @@ if "feed" not in driver.current_url:
     username = driver.find_element(By.ID, "username")
     password = driver.find_element(By.ID, "password")
 
-    # Ingresar credenciales
-    NAME     = "bob-esponja"
-    USERNAME = ""
-    PASSWORD = ""
-
     username.send_keys(USERNAME)
     password.send_keys(PASSWORD)
     password.send_keys(Keys.RETURN)
@@ -57,9 +79,9 @@ if "feed" not in driver.current_url:
 # Verificar que la sesión se inició correctamente
 if "feed" in driver.current_url:
     print("✅ Inicio de sesión exitoso")
-    driver.get(f"https://linkedin.com/in/{{NAME}")
+    driver.get(f"https://linkedin.com/in/{NAME}")
     time.sleep(3)
-    
+
     # Definir las secciones del perfil
     secciones = {
         "about": f"https://www.linkedin.com/in/{NAME}/details/about/",
