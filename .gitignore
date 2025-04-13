@@ -9,6 +9,7 @@
 *.gz
 *.tgz
 *.pkl
+__pycache__
 venv
 profile
 extracted
